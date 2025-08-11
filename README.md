@@ -21,7 +21,14 @@ Automatiza a criação de um novo repositório GitHub e inicialização do proje
 ```bash
 python3 gh_repo_config.py
 ```
-Siga as instruções interativas no terminal.
+Ou execute diretamente via CDN:
+```bash
+curl -s https://cdn.jsdelivr.net/gh/domzack/bot-zack@main/gh_repo_config.py | python3
+```
+Ou:
+```bash
+curl -s  https://raw.githubusercontent.com/domzack/bot-zack/refs/heads/main/gh_repo_config.py | python3
+```
 
 ---
 
@@ -39,7 +46,14 @@ Automatiza a configuração de um alias global do Git chamado `pop` e permite co
 ```bash
 python3 git_alias_config.py
 ```
-O script configura o alias e o email automaticamente.
+Ou execute diretamente via CDN:
+```bash
+curl -s https://cdn.jsdelivr.net/gh/domzack/bot-zack@main/git_alias_config.py | python3
+```
+Ou:
+```bash
+curl -s  https://raw.githubusercontent.com/domzack/bot-zack/refs/heads/main/git_alias_config.py | python3
+```
 
 ---
 
