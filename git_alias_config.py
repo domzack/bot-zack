@@ -1,5 +1,9 @@
 import subprocess
 import os
+import sys
+
+def is_windows():
+    return os.name == 'nt'
 
 def remover_alias_pop():
     print('Removendo alias global "pop" (se existir)...')
@@ -7,10 +11,18 @@ def remover_alias_pop():
 
 def criar_alias_pop():
     print('Criando novo alias global "pop"...')
-    comando = (
-        'git config --global alias.pop '
-        '\'! pop() { git add . && git commit -a -m "$1" && git push && git status ; } ; pop\''
-    )
+    if is_windows():
+        # No Windows, o comando precisa ser adaptado para batch
+        comando = (
+            'git config --global alias.pop '
+            '"!git add . && git commit -a -m \"%1\" && git push && git status"'
+        )
+    else:
+        # Unix-like (Linux/Mac)
+        comando = (
+            "git config --global alias.pop "
+            "'! pop() { git add . && git commit -a -m \"$1\" && git push && git status ; } ; pop'"
+        )
     subprocess.run(comando, shell=True, check=True)
 
 def configurar_email():
